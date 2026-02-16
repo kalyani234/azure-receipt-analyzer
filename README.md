@@ -9,6 +9,7 @@
 ---
 
 ## 📖 Project Description
+
 The **Azure-YOLO Receipt Parser** is a full-stack engineering solution designed to bridge the gap between raw grocery receipt images and structured digital data. While standard OCR tools often lose context, this system utilizes a **Tri-Tier Hybrid Extraction Engine** to maintain spatial relationships between merchant names, line items, and totals.
 
 By cascading from **Enterprise Cloud AI** (Azure) to **Custom Edge AI** (YOLOv8), the application ensures high-reliability extraction even when receipts are blurred, poorly lit, or follow non-standard layouts.

@@ -15,6 +15,11 @@ A full-stack web application that automatically detects key text regions on groc
 - Fallback to custom-trained **YOLOv8** model (PyTorch) for unseen receipts
 - Dockerized (separate backend & frontend containers)
 
+## Architectural Diagram
+<img width="1536" height="1024" alt="imag2" src="https://github.com/user-attachments/assets/c8c05658-cd4e-4726-980b-aa920358f088" />
+
+
+
 ## 🚀 Technologies Used
 
 | Category | Technology / Tool | Purpose / Role |

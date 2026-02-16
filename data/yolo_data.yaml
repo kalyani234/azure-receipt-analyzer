@@ -1,4 +1,4 @@
-path: /Users/navyakalyani/Desktop/receipt-analyzer/data
+path: receipt-analyzer/data
 
 train: images
 val: images

@@ -14,6 +14,8 @@ A full-stack web application that automatically detects key text regions on groc
 ![XML](https://img.shields.io/badge/XML-005FAD?style=for-the-badge&logo=xml&logoColor=white)
 ![Requests](https://img.shields.io/badge/Requests-20232A?style=for-the-badge&logo=python&logoColor=white)
 ![tqdm](https://img.shields.io/badge/tqdm-4CAF50?style=for-the-badge&logo=python&logoColor=white)
+
+### Demo
 [Recording](https://github.com/user-attachments/assets/bb44fd9f-dd4d-4337-b451-9dd4d4a9673a)
 
 ## Features

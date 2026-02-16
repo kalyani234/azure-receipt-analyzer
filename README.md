@@ -1,51 +1,36 @@
-## Azure-YOLO Receipt Parser: Advanced AI-Powered OCR & Object Detection for Grocery Analytics 
+# 🧾 Azure-YOLO Receipt Parser
+### *Advanced AI-Powered OCR & Object Detection for Grocery Analytics*
 
-A full-stack web application that automatically detects key text regions on grocery receipt images (store name, date/time, items, total) and extracts structured information using Azure AI, custom annotations, and YOLOv8 fallback.
----
-
-## 🚀 Tech Stack
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Uvicorn](https://img.shields.io/badge/Uvicorn-222222?style=for-the-badge&logo=uvicorn&logoColor=white)
-![YOLOv8](https://img.shields.io/badge/YOLOv8-111111?style=for-the-badge&logo=python&logoColor=white)
-![Azure AI](https://img.shields.io/badge/Azure%20AI%20Document%20Intelligence-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Pillow](https://img.shields.io/badge/Pillow-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![XML](https://img.shields.io/badge/XML-005FAD?style=for-the-badge&logo=xml&logoColor=white)
-![Requests](https://img.shields.io/badge/Requests-20232A?style=for-the-badge&logo=python&logoColor=white)
-![tqdm](https://img.shields.io/badge/tqdm-4CAF50?style=for-the-badge&logo=python&logoColor=white)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Docker](https://img.shields.io/badge/Deployment-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Azure](https://img.shields.io/badge/AI-Azure%20Document%20Intelligence-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)](https://azure.microsoft.com/)
 
 ---
-## Dataset
 
-This project uses the **OCR Receipts from Grocery Stores Text Detection** dataset from Kaggle:
+## 📖 Project Description
+The **Azure-YOLO Receipt Parser** is a full-stack engineering solution designed to bridge the gap between raw grocery receipt images and structured digital data. While standard OCR tools often lose context, this system utilizes a **Tri-Tier Hybrid Extraction Engine** to maintain spatial relationships between merchant names, line items, and totals.
 
-- **Link**: https://www.kaggle.com/datasets/trainingdatapro/ocr-receipts-text-detection
-- **Images**: 20 real grocery receipt photos (JPG format)
-- **Annotations**: Single `annotations.xml` file with bounding boxes and text labels
-- **Classes**: store, item, date_time, total
-- **Size**: Small, high-quality, manually annotated dataset
-- **License**: Commercial usage requires contacting the author (see Kaggle page)
+By cascading from **Enterprise Cloud AI** (Azure) to **Custom Edge AI** (YOLOv8), the application ensures high-reliability extraction even when receipts are blurred, poorly lit, or follow non-standard layouts.
 
-The XML annotations provide exact bounding boxes and text for the 20 images, enabling precise detection and extraction for known receipts.
+---
+
+## 📐 System Architecture
+The system is built on a microservices architecture, dockerized for seamless deployment.
+
+<p align="center">
+  <img width="100%" alt="Azure-YOLO System Architecture" src="https://github.com/user-attachments/assets/c8c05658-cd4e-4726-980b-aa920358f088" />
+</p>
+
+### **The Hybrid Logic Flow:**
+1.  **Primary Engine:** **Azure AI Document Intelligence** performs real-time OCR and structured field mapping.
+2.  **Deterministic Fallback:** If the receipt is from the core dataset, the system uses **Pre-annotated XML Mapping** for 100% coordinate accuracy.
+3.  **Heuristic Fallback:** For unseen formats, a custom-trained **YOLOv8 (PyTorch)** model detects key regions (Header, Items, Footer) and applies confidence scoring to filter noise.
 ---
 
 ### Demo
 [Recording](https://github.com/user-attachments/assets/bb44fd9f-dd4d-4337-b451-9dd4d4a9673a)
-
-## Features
-
-- Upload receipt photo (jpg/jpeg/png)
-- Side-by-side view: Original vs Detected Regions (with bounding boxes)
-- Extracted information: Store, Date/Time, Total, Items list with confidence
-- Confidence filter slider
-- Download annotated image (PNG)
-- Backend powered by **FastAPI** + **Azure AI Document Intelligence** (primary OCR)
-- Fallback to XML annotations from a 20-image dataset
-- Fallback to custom-trained **YOLOv8** model (PyTorch) for unseen receipts
-- Dockerized (separate backend & frontend containers)
 ---
-
 ## Architectural Diagram
 <img width="1536" height="1024" alt="imag2" src="https://github.com/user-attachments/assets/c8c05658-cd4e-4726-980b-aa920358f088" />
 
@@ -72,29 +57,39 @@ The XML annotations provide exact bounding boxes and text for the 20 images, ena
 * Docker Desktop (recommended)
 * Azure AI Document Intelligence resource (free F0 tier) – Endpoint & Key
 
-### Local Run (Docker)
+### **Local Run (Docker)**
 
-1. Build the image
+1.  **Build the Project Image:**
+    ```bash
+    docker build -t receipt-analyzer:latest .
+    ```
 
-```docker build -t receipt-analyzer:latest . ```
+2.  **Deploy the Backend (FastAPI):**
+    ```bash
+    docker run -d -p 8000:8000 --name receipt-backend receipt-analyzer:latest uvicorn api.main:app --host 0.0.0.0 --port 8000
+    ```
 
-2. Run backend (FastAPI)
+3.  **Deploy the Frontend (Streamlit):**
+    ```bash
+    docker run -d -p 8501:8501 --name receipt-frontend receipt-analyzer:latest streamlit run ui/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+    ```
 
-```docker run -d -p 8000:8000 --name receipt-backend receipt-analyzer:latest uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload ```
+### **How to Use**
+1.  Navigate to `http://localhost:8501`.
+2.  Upload a receipt image (`.jpg`, `.jpeg`, or `.png`).
+3.  Adjust the **Confidence Threshold** slider to filter detections.
+4.  Review the extracted table and download the annotated image for your records.
 
-3. Run frontend (Streamlit) in another terminal
-
-```docker run -d -p 8501:8501 --name receipt-frontend receipt-analyzer:latest streamlit run ui/streamlit_app.py --server.port 8501 --server.address 0.0.0.0```
-
-4. Open in browser:
-* UI: http://localhost:8501
-* Backend docs: http://localhost:8000/docs
-
-5. Stop Containers
-```docker stop receipt-backend receipt-frontend```
-```docker rm receipt-backend receipt-frontend```
 ---
 
-### License
-MIT License – free to use, modify, and share!
-Built with ❤️ – 2026
+## 📊 Dataset Reference
+This project utilizes the **OCR Receipts from Grocery Stores** dataset:
+* **Source:** [Kaggle - TrainingDataPro](https://www.kaggle.com/datasets/trainingdatapro/ocr-receipts-text-detection)
+* **Scope:** 20 high-quality grocery receipts with full XML annotations for `store`, `item`, `date_time`, and `total`.
+
+---
+
+## 📜 License
+Distributed under the **MIT License**.
+
+**Built with ❤️ — 2026**

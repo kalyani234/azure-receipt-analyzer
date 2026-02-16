@@ -19,47 +19,14 @@ A full-stack web application that automatically detects key text regions on groc
 
 (Add your screenshots here later – e.g. upload to repo and link)
 
-![Screenshot 1](screenshots/screenshot1.png)  
+<img width="1116" height="662" alt="Screenshot 2026-02-15 at 11 16 57 PM" src="https://github.com/user-attachments/assets/a7033163-2122-457d-8daa-d1628c1f602c" />
+
 ![Screenshot 2](screenshots/screenshot2.png)
 
 ## Architecture Diagram
+<img width="365" height="248" alt="Screenshot 2026-02-15 at 11 39 04 PM" src="https://github.com/user-attachments/assets/2eb65e5a-a8ac-4ec2-8ed6-d7abef351679" />
 
-```mermaid
-graph TD
-    User[User / Browser] -->|1. Upload receipt image| Streamlit[Streamlit Frontend<br>ui/streamlit_app.py<br>port 8501]
 
-    Streamlit -->|2. POST /analyze<br>multipart file| FastAPI[FastAPI Backend<br>api/main.py<br>port 8000]
-
-    subgraph "Backend Processing"
-        FastAPI --> AzureAI[Azure AI Document Intelligence<br>prebuilt-receipt model]
-
-        AzureAI -->|Primary: Real OCR + structured fields<br>MerchantName, TransactionDate, Total, Items table| Merge[Merge Results<br>detections + azure_fields + azure_items]
-
-        FastAPI --> XMLCheck{filename in XML?}
-        XMLCheck -->|Yes| XML[XML Annotations<br>data/annotations.xml<br>Exact boxes + labeled text]
-        XML --> Merge
-
-        XMLCheck -->|No| YOLOCheck{YOLO loaded?}
-        YOLOCheck -->|Yes| YOLO[YOLOv8 Model<br>PyTorch-based<br>runs/detect/train3/weights/best.pt<br>Boxes + real confidence]
-        YOLO --> Merge
-
-        Merge -->|3. Return JSON| FastAPI
-    end
-
-    FastAPI -->|4. JSON response| Streamlit
-
-    Streamlit -->|5. Render:<br>• Side-by-side images with boxes<br>• Summary cards (Store, Date, Total)<br>• Items table<br>• Download annotated PNG| User
-
-    classDef azure fill:#0078d4,stroke:#005a9e,stroke-width:2px,color:#fff
-    classDef pytorch fill:#ee4c2c,stroke:#b33a1f,stroke-width:2px,color:#fff
-    classDef streamlit fill:#ff4b4b,stroke:#d43f3f
-    classDef fastapi fill:#00bfff,stroke:#009acd
-
-    class AzureAI azure
-    class YOLO pytorch
-    class Streamlit streamlit
-    class FastAPI fastapi
-```
 ## 🚀 Technologies Used
 
 | Category | Technology / Tool | Purpose / Role |

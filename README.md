@@ -40,7 +40,7 @@ receipt-analyzer/
 The system is built on a microservices architecture, dockerized for seamless deployment.
 
 <p align="center">
-  <img width="100%" alt="Azure-YOLO System Architecture" src="https://github.com/user-attachments/assets/c8c05658-cd4e-4726-980b-aa920358f088" />
+  <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/3c8a01e1-1ba4-43e5-869a-fbee5cc8d59e" />
 </p>
 
 ### **The Hybrid Logic Flow:**

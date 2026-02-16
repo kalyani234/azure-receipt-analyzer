@@ -1,0 +1,7 @@
+path: /Users/navyakalyani/Desktop/receipt-analyzer/data
+
+train: images
+val: images
+
+nc: 4
+names: ['STORE', 'DATE_TIME', 'ITEM', 'TOTAL']

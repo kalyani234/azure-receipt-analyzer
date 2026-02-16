@@ -1,0 +1,19 @@
+# Exclude large/unneeded stuff
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.git
+.gitignore
+runs/                    # YOLO training outputs — very large
+data/images/*            # receipt photos
+data/yolo_labels/*
+data/labels/*
+*.pt
+*.pth
+*.ckpt
+notebooks/
+.ipynb_checkpoints/

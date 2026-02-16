@@ -1,0 +1,25 @@
+# Core web + data
+fastapi>=0.95.0
+uvicorn>=0.20.0
+streamlit>=1.20.0
+python-multipart>=0.0.5
+
+# Database (if you add PostgreSQL later)
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+
+# Azure AI Document Intelligence
+azure-ai-documentintelligence>=1.0.0
+
+# Image processing & vision
+pillow>=9.0.0
+opencv-python-headless>=4.7.0
+
+# PyTorch + YOLOv8
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+tqdm>=4.65.0

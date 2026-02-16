@@ -2,6 +2,7 @@
 
 **Azure Receipt Text Detection & Extraction System**  
 A full-stack web application that automatically detects key text regions on grocery receipt images (store name, date/time, items, total) and extracts structured information using Azure AI, custom annotations, and YOLOv8 fallback.
+---
 
 ## 🚀 Tech Stack
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
@@ -15,27 +16,20 @@ A full-stack web application that automatically detects key text regions on groc
 ![Requests](https://img.shields.io/badge/Requests-20232A?style=for-the-badge&logo=python&logoColor=white)
 ![tqdm](https://img.shields.io/badge/tqdm-4CAF50?style=for-the-badge&logo=python&logoColor=white)
 
+---
 ## Dataset
 
-The project uses a small, high-quality dataset of **20 real grocery receipt images**, manually annotated for text region detection and extraction.
+This project uses the **OCR Receipts from Grocery Stores Text Detection** dataset from Kaggle:
 
-### Key Details
-- **Total Images**: 20 (JPG/JPEG format)
-- **Source**: Grocery store receipts (e.g., Walmart, Trader Joe's, etc.)
-- **Annotation Format**: Single **annotations.xml** file (CVAT-style export)
-- **Classes (4 main)**:
-  - **store** – store/merchant name
-  - **date_time** – purchase date and time
-  - **item** – product lines (description, quantity, price)
-  - **total** – subtotal, total, tax, grand total
+- **Link**: https://www.kaggle.com/datasets/trainingdatapro/ocr-receipts-text-detection
+- **Images**: 20 real grocery receipt photos (JPG format)
+- **Annotations**: Single `annotations.xml` file with bounding boxes and text labels
+- **Classes**: store, item, date_time, total
+- **Size**: Small, high-quality, manually annotated dataset
+- **License**: Commercial usage requires contacting the author (see Kaggle page)
 
-### Usage
-- Provides **exact bounding boxes** and **ground-truth text** for the 20 images
-- Backend matches uploaded filename to XML → returns precise annotations
-- Fallback for new receipts: YOLOv8 model + Azure OCR
-- Converted to YOLO format for training custom detection model
-
-This dataset enables high accuracy on known receipts while allowing generalization to new images via Azure and YOLO.
+The XML annotations provide exact bounding boxes and text for the 20 images, enabling precise detection and extraction for known receipts.
+---
 
 ### Demo
 [Recording](https://github.com/user-attachments/assets/bb44fd9f-dd4d-4337-b451-9dd4d4a9673a)
@@ -51,6 +45,7 @@ This dataset enables high accuracy on known receipts while allowing generalizati
 - Fallback to XML annotations from a 20-image dataset
 - Fallback to custom-trained **YOLOv8** model (PyTorch) for unseen receipts
 - Dockerized (separate backend & frontend containers)
+---
 
 ## Architectural Diagram
 <img width="1536" height="1024" alt="imag2" src="https://github.com/user-attachments/assets/c8c05658-cd4e-4726-980b-aa920358f088" />
@@ -99,6 +94,7 @@ This dataset enables high accuracy on known receipts while allowing generalizati
 5. Stop Containers
 ```docker stop receipt-backend receipt-frontend```
 ```docker rm receipt-backend receipt-frontend```
+---
 
 ### License
 MIT License – free to use, modify, and share!

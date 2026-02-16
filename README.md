@@ -15,6 +15,28 @@ A full-stack web application that automatically detects key text regions on groc
 ![Requests](https://img.shields.io/badge/Requests-20232A?style=for-the-badge&logo=python&logoColor=white)
 ![tqdm](https://img.shields.io/badge/tqdm-4CAF50?style=for-the-badge&logo=python&logoColor=white)
 
+## Dataset
+
+The project uses a small, high-quality dataset of **20 real grocery receipt images**, manually annotated for text region detection and extraction.
+
+### Key Details
+- **Total Images**: 20 (JPG/JPEG format)
+- **Source**: Grocery store receipts (e.g., Walmart, Trader Joe's, etc.)
+- **Annotation Format**: Single **annotations.xml** file (CVAT-style export)
+- **Classes (4 main)**:
+  - **store** – store/merchant name
+  - **date_time** – purchase date and time
+  - **item** – product lines (description, quantity, price)
+  - **total** – subtotal, total, tax, grand total
+
+### Usage
+- Provides **exact bounding boxes** and **ground-truth text** for the 20 images
+- Backend matches uploaded filename to XML → returns precise annotations
+- Fallback for new receipts: YOLOv8 model + Azure OCR
+- Converted to YOLO format for training custom detection model
+
+This dataset enables high accuracy on known receipts while allowing generalization to new images via Azure and YOLO.
+
 ### Demo
 [Recording](https://github.com/user-attachments/assets/bb44fd9f-dd4d-4337-b451-9dd4d4a9673a)
 

@@ -4,7 +4,7 @@
 A full-stack web application that automatically detects key text regions on grocery receipt images (store name, date/time, items, total) and extracts structured information using Azure AI, custom annotations, and YOLOv8 fallback.
 
 ### Demo
-[Recording](!https://github.com/kalyani234/azure-receipt-analyzer/issues/1#issue-3945287063)
+[!Recording](https://github.com/kalyani234/azure-receipt-analyzer/issues/1#issue-3945287063)
 
 ## Features
 

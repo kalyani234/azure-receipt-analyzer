@@ -14,6 +14,27 @@ The **Azure-YOLO Receipt Parser** is a full-stack engineering solution designed 
 By cascading from **Enterprise Cloud AI** (Azure) to **Custom Edge AI** (YOLOv8), the application ensures high-reliability extraction even when receipts are blurred, poorly lit, or follow non-standard layouts.
 
 ---
+```
+## Project Structure
+receipt-analyzer/
+├── api/                    # FastAPI backend
+│   └── main.py             # API logic + /analyze endpoint
+├── ui/                     # Streamlit frontend
+│   └── streamlit_app.py    # UI: upload, analyze, display results
+├── data/                   # Dataset
+│   ├── images/             # 0.jpg ... 19.jpg (receipt photos)
+│   └── annotations.xml     # Bounding boxes + text labels
+├── runs/                   # YOLO training outputs
+│   └── detect/trainX/      # weights/best.pt
+├── scripts/                # Helpers
+│   └── convert_to_yolo.py  # XML → YOLO converter
+├── Dockerfile              # Docker build
+├── requirements.txt        # Dependencies
+├── .dockerignore           # Exclude large files
+├── .gitignore              # Ignore venv, cache, runs/
+└── README.md               # This file
+```
+---
 
 ## 📐 System Architecture
 The system is built on a microservices architecture, dockerized for seamless deployment.

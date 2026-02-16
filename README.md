@@ -1,6 +1,5 @@
-# Receipt Analyzer
+# ** Azure-YOLO Receipt Parser: Advanced AI-Powered OCR & Object Detection for Grocery Analytics **
 
-**Azure Receipt Text Detection & Extraction System**  
 A full-stack web application that automatically detects key text regions on grocery receipt images (store name, date/time, items, total) and extracts structured information using Azure AI, custom annotations, and YOLOv8 fallback.
 ---
 

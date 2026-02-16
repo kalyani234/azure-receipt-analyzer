@@ -30,10 +30,8 @@ The system is built on a microservices architecture, dockerized for seamless dep
 
 ### Demo
 [Recording](https://github.com/user-attachments/assets/bb44fd9f-dd4d-4337-b451-9dd4d4a9673a)
----
-## Architectural Diagram
-<img width="1536" height="1024" alt="imag2" src="https://github.com/user-attachments/assets/c8c05658-cd4e-4726-980b-aa920358f088" />
 
+---
 
 ## 🚀 Technologies Used
 

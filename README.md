@@ -4,32 +4,16 @@
 A full-stack web application that automatically detects key text regions on grocery receipt images (store name, date/time, items, total) and extracts structured information using Azure AI, custom annotations, and YOLOv8 fallback.
 
 ## 🚀 Tech Stack
-
-### 🖥️ Frontend
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-
-### ⚙️ Backend
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Uvicorn](https://img.shields.io/badge/Uvicorn-222222?style=for-the-badge&logo=uvicorn&logoColor=white)
-
-### 🤖 AI / ML
 ![YOLOv8](https://img.shields.io/badge/YOLOv8-111111?style=for-the-badge&logo=python&logoColor=white)
 ![Azure AI](https://img.shields.io/badge/Azure%20AI%20Document%20Intelligence-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-
-### 🐳 DevOps
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-
-### 🖼️ Image & Data Processing
 ![Pillow](https://img.shields.io/badge/Pillow-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![XML](https://img.shields.io/badge/XML-005FAD?style=for-the-badge&logo=xml&logoColor=white)
-
-### 🌐 Communication
 ![Requests](https://img.shields.io/badge/Requests-20232A?style=for-the-badge&logo=python&logoColor=white)
-
-### 🛠️ Utilities
 ![tqdm](https://img.shields.io/badge/tqdm-4CAF50?style=for-the-badge&logo=python&logoColor=white)
-
-### Demo
 [Recording](https://github.com/user-attachments/assets/bb44fd9f-dd4d-4337-b451-9dd4d4a9673a)
 
 ## Features

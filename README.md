@@ -17,14 +17,9 @@ A full-stack web application that automatically detects key text regions on groc
 
 ## Demo Screenshots
 
-(Add your screenshots here later – e.g. upload to repo and link)
-
-<img width="1116" height="662" alt="Screenshot 2026-02-15 at 11 16 57 PM" src="https://github.com/user-attachments/assets/a7033163-2122-457d-8daa-d1628c1f602c" />
-
-![Screenshot 2](screenshots/screenshot2.png)
 
 ## Architecture Diagram
-<img width="365" height="248" alt="Screenshot 2026-02-15 at 11 39 04 PM" src="https://github.com/user-attachments/assets/2eb65e5a-a8ac-4ec2-8ed6-d7abef351679" />
+
 
 
 ## 🚀 Technologies Used
